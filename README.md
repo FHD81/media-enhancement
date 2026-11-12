@@ -5,7 +5,7 @@
   </picture>
 </h1>
 
-Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX graphics card. It upscales video to your display with NVIDIA Video Super Resolution, can remove film grain and sharpen the picture, and can generate in-between frames for smoother motion (2×, 3×, 4× or matched to your display's refresh rate).
+Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX graphics card. It upscales video to your display with NVIDIA Video Super Resolution, can remove film grain and sharpen the picture, and can generate in-between frames for smoother motion (2× to 6×, or matched to your display's refresh rate).
 
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
 
@@ -19,8 +19,8 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 Both are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.1.0.exe`.
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.1.1-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.1.1-Firefox.xpi`. See [Browser extension](#browser-extension).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.2.0.exe`.
+- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.2.0-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.2.0-Firefox.xpi`. See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Both are in the [latest release](../../releases/latest), whose notes list the SH
 - An NVIDIA RTX graphics card with a current NVIDIA driver:
   - **Upscaling and picture effects:** RTX 20 series or newer.
   - **Frame generation:** RTX 40 or RTX 50 series.
-- MPC-HC 2.8 or newer. Setup installs MPC-HC 2.8.4.49 when no MPC-HC is found.
+- MPC-HC 2.8 or newer. Setup installs MPC-HC 2.8.5 when no MPC-HC is found.
 - About 2 GB of free disk space, most of it for the NVIDIA runtime files.
 
 ## Install
@@ -49,7 +49,7 @@ The settings can be changed in three places. They all change the same settings, 
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page show example settings, not the defaults: the Movie profile, 4× frame generation and the A/B hotkey off.
+The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page show example settings, not the defaults: the Movie profile, 4× frame generation and the A/B hotkey off. They were taken with version 1.1.0, so the frame generation lists in them end at 4×.
 
 ## Features
 
@@ -61,7 +61,7 @@ The menu's Status line and the panel's status box show live figures while a vide
 - **Film grain removal and sharpening:**
   - Grain removal uses NVIDIA's effect.
   - Sharpening is the filter's own contrast-adaptive pass. It sharpens edges without halos.
-- **Frame generation:** NVIDIA Video Frame Generation at 2×, 3× or 4×, matched to the display's refresh rate, or off. The quality can be Auto, High, Medium or Low, and the filter detects scene changes.
+- **Frame generation:** NVIDIA Video Frame Generation at 2× to 6×, matched to the display's refresh rate, or off. The quality can be Auto, High, Medium or Low, and the filter detects scene changes.
 - **Automatic fit:**
   - The filter chooses the richest settings that fit a GPU time budget you can set.
   - It favours either frame rate or picture quality, as you choose.
@@ -86,7 +86,7 @@ Use Settings › Apps › Installed apps › Media Enhancement › Uninstall, or
 The browser extension enhances video that plays in a web page:
 
 - **Upscaling:** it enlarges the picture to the size the video is shown at on your screen, up to 3840×2160, and sharpens it.
-- **Frame generation:** it adds generated in-between frames, 2×, 3× or 4×, never more than your display's refresh rate.
+- **Frame generation:** it adds generated in-between frames, 2× to 6×, never more than your display's refresh rate.
 - **Picture controls:** brightness, contrast, saturation and sharpness.
 
 It runs on your graphics card through WebGPU, inside the page. It does not use MPC-HC or the NVIDIA effects, so it is not limited to NVIDIA cards.
@@ -96,16 +96,16 @@ It runs on your graphics card through WebGPU, inside the page. It does not use M
 ### Install the extension
 
 - **Chrome or Edge:**
-  1. Download `Media-Enhancement-Browser-1.1.1-Chrome-Edge.zip` and unzip it to a folder you keep.
+  1. Download `Media-Enhancement-Browser-1.2.0-Chrome-Edge.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.1.1-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
+- **Firefox:** download `Media-Enhancement-Browser-1.2.0-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
 
 ### Use the extension
 
 1. Play a video on a page.
 2. Click the extension's icon and switch it on, or press Alt+Shift+E.
-3. Choose upscaling (up to 4K, or off) and frame generation (4×, 3×, 2× or off), and set the picture controls if you like; Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
+3. Choose upscaling (up to 4K, or off) and frame generation (6×, 5×, 4×, 3×, 2× or off), and set the picture controls if you like; Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
 
 The extension shows fewer generated frames than you chose when your display's refresh rate cannot show them. When playback would not stay smooth, it steps down for a while: fewer generated frames first, then no upscaling, then the video as it is.
 
@@ -123,7 +123,7 @@ The extension shows fewer generated frames than you chose when your display's re
 - The extension steps aside while the video's own controls show (also while the pointer rests on their bar) or its captions, in picture-in-picture (in Chrome and Edge; Firefox does not tell pages about its own picture-in-picture window), and when the bare video element is fullscreen. Most sites show fullscreen video inside their own player, where it works.
 - With frame generation on, the picture is shown about one source frame later than the browser would show it (about 42 ms at 24 fps). The sound is not changed.
 - While a page scrolls a video inside a scrolling area of its own (such as a feed), the enhanced picture is hidden until the scrolling stops.
-- When the browser passes too few of a video's frames to pages, the extension shows the video as it is, since the browser's own picture has every frame, and the popup says why. Firefox tells pages about new frames only about 25 times a second, so in Firefox the extension reads Firefox's frame counter on each display refresh instead: 24, 30 and 60 fps video is enhanced (tested with Firefox 160 on 60 and 120 Hz displays at normal speed; other frame rates were not tested). A new video in Firefox is shown as it is for about a second (three at most) while the popup says the extension is checking its frames. Where Firefox's frame counter is switched off (`media.video_stats.enabled`) or made up (`privacy.resistFingerprinting`), the extension works from Firefox's frame reports alone: video above 25 fps is shown as it is, 24 fps video holds briefly about once a second, and after Firefox has withheld frames once, later videos on the same page are checked for about two seconds before the enhanced picture is shown.
+- When the browser passes too few of a video's frames to pages, the extension shows the video as it is, since the browser's own picture has every frame, and the popup says why. Firefox tells pages about new frames only about 25 times a second, so in Firefox the extension reads Firefox's frame counter on each display refresh instead: 24, 25, 30, 50 and 60 fps video is enhanced (tested with Firefox 160 on 60 and 120 Hz displays at normal speed; other frame rates were not tested). With 50 fps video on a 60 Hz display, one of four test runs stopped reading the frame counter at its end, after about 40 seconds; the cause was not found. A new video in Firefox is shown as it is for about a second (three at most) while the popup says the extension is checking its frames. Where Firefox's frame counter is switched off (`media.video_stats.enabled`) or made up (`privacy.resistFingerprinting`), the extension works from Firefox's frame reports alone: video above 25 fps is shown as it is, 24 fps video holds briefly about once a second, and after Firefox has withheld frames once, later videos on the same page are checked for about two seconds before the enhanced picture is shown.
 - Brightness, contrast and saturation also apply while the extension steps aside for the video's own controls or captions, when the browser withholds frames, when the graphics card is busy, and for video the page may not read (another site's, or a file from your computer). They then also apply to the video's own captions and controls, so at low brightness or contrast captions are dimmer. In the other cases above, and for copy-protected video, they do not apply. Sharpness applies only to the enhanced picture.
 - In Firefox, a video with oval corners is drawn by Firefox a little narrower at the sides than the page sets. The enhanced picture fills the whole oval, and while the extension shows the video as it is, brightness, contrast and saturation also apply to the thin strips of page at the sides.
 - If a stream's frame rate drops sharply while it plays (from 60 to 15 fps, say), no frames are generated for the rest of that video.

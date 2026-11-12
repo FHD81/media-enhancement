@@ -11,11 +11,11 @@ The Media Enhancement installer contains or installs the software below, and the
 - The runtime libraries are distributed as part of Media Enhancement, for use with it only.
 - Copyright © NVIDIA Corporation. All rights reserved.
 
-## MPC-HC 2.8.4.49
+## MPC-HC 2.8.5
 
 - **What:** the unmodified MPC-HC installer. Setup runs it only when MPC-HC is missing, or when you choose to update it.
 - **Licence:** GNU General Public License, version 3. The licence text is installed with MPC-HC.
-- **Source code:** <https://github.com/clsid2/mpc-hc>. This build is published in the release tagged 2.8.4.17: <https://github.com/clsid2/mpc-hc/releases/tag/2.8.4.17>.
+- **Source code:** <https://github.com/clsid2/mpc-hc>. This build is published in the release tagged 2.8.5: <https://github.com/clsid2/mpc-hc/releases/tag/2.8.5>.
 - **Relationship:** Media Enhancement contains no MPC-HC code. MPC-HC loads it as an external DirectShow filter.
 
 ## Microsoft Visual C++ Redistributable (x64)
