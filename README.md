@@ -17,10 +17,11 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 ## Download
 
-Both are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
+All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.6.exe`.
 - **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.5-Firefox.xpi`. See [Browser extension](#browser-extension).
+- **For converting files:** the converter preview, `Media-Enhancement-Converter-0.1.0.zip`. See [Converter](#converter).
 
 ## Requirements
 
@@ -140,6 +141,17 @@ The extension shows fewer generated frames than you chose when your display's re
 ### Extension privacy
 
 The extension runs only on your computer and does not collect or send any data. It keeps only its own settings, in the browser. It asks for the active-tab, scripting and storage permissions. By default it runs on a page only when you switch it on there. If you choose Automatic, the browser first asks you to give the extension access to all websites. The extension then adds a small script to every page you open, which only notices when a video plays, and it switches the enhancement on in a page where a large video plays with its sound on. As when you switch it on yourself, the page can see the enhanced picture and the settings it uses. Choosing Off or On this page takes that access back.
+
+## Converter
+
+A preview. It converts a video file to a new file with the same enhancements (upscaling, grain removal, sharpening and frame generation), so the result plays anywhere, also on devices without an NVIDIA card.
+
+- It needs Media Enhancement installed: the converter uses the NVIDIA runtime that Setup installs. The download contains no NVIDIA files.
+- Unzip `Media-Enhancement-Converter-0.1.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. Add your videos, choose the settings and start. The original files are not changed.
+- `MediaEnhancementConvert.exe` is the same engine for the command line; `README.txt` in the download lists its options.
+- `--protect on` keeps still overlays (text, logos, game displays) steady in generated frames. It is off by default and was measured only on game recordings at 1920×1080 and 2×.
+- Tested: the engine's 19-case suite on an RTX 5060. The window of this build was not tested again after the rebuild.
+- The download includes FFmpeg 9.0 libraries (LGPL version 3, unchanged); see `README.txt` and `FFmpeg LICENSE.txt` in it.
 
 ## Licence
 
