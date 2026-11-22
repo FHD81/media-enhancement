@@ -21,7 +21,7 @@ All are in the [latest release](../../releases/latest), whose notes list the SHA
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.6.exe`.
 - **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.5-Firefox.xpi`. See [Browser extension](#browser-extension).
-- **For converting files:** the converter preview, `Media-Enhancement-Converter-0.1.0.zip`. See [Converter](#converter).
+- **For converting files:** the converter preview, `Media-Enhancement-Converter-0.3.0.zip`. See [Converter](#converter).
 
 ## Requirements
 
@@ -146,13 +146,21 @@ The extension runs only on your computer and does not collect or send any data. 
 
 A preview. It converts a video file to a new file with the same enhancements (upscaling, grain removal, sharpening and frame generation), so the result plays anywhere, also on devices without an NVIDIA card.
 
-![The converter's window while it converts a video to 4K at 60 fps](docs/images/converter.png)
+![The converter's window: the original frame on the left, the enhanced frame on the right, a seek bar and the settings](docs/images/converter.png)
+
+- **Preview before converting.** The original frame is on the left and the enhanced frame on the right. Move the seek bar to any scene, zoom in with the mouse wheel (up to 64×) and drag to move the picture. "Show a generated frame" shows a frame made by frame generation.
+- **Split view** shows one picture with a divider you can drag between the original and the enhanced side.
+- **Choose the result:** a preset, or the size, frame rate, upscaling, grain removal, sharpening, motion quality, file format, codec and quality.
+- **Trim:** "Start here" and "End here" convert only part of a video.
+- **Estimates:** "Preview 10 s" converts ten seconds from the seek bar's position and estimates the size and time of the whole conversion.
+- **Still text and overlays** keeps text, logos and game displays steady in generated frames. It is off by default and was measured only on game recordings at 1920×1080 and 2×.
+
+![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
 - It needs Media Enhancement installed: the converter uses the NVIDIA runtime that Setup installs. The download contains no NVIDIA files.
-- Unzip `Media-Enhancement-Converter-0.1.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. Add your videos, choose the settings and start. The original files are not changed.
+- Unzip `Media-Enhancement-Converter-0.3.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. The original files are not changed.
 - `MediaEnhancementConvert.exe` is the same engine for the command line; `README.txt` in the download lists its options.
-- `--protect on` keeps still overlays (text, logos, game displays) steady in generated frames. It is off by default and was measured only on game recordings at 1920×1080 and 2×.
-- Tested: the engine's 19-case suite on an RTX 5060. The window of this build was not tested again after the rebuild.
+- Tested: the engine's 20-case suite on an RTX 5060, including the preview pictures.
 - The download includes FFmpeg 9.0 libraries (LGPL version 3, unchanged); see `README.txt` and `FFmpeg LICENSE.txt` in it.
 
 ## Licence
