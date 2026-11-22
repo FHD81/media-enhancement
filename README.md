@@ -20,7 +20,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 Both are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.6.exe`.
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.3-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.3-Firefox.xpi`. See [Browser extension](#browser-extension).
+- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.5-Firefox.xpi`. See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -94,17 +94,17 @@ It runs on your graphics card through WebGPU, inside the page. It does not use M
 
 ![The extension's popup over a video playing in Chrome](docs/images/extension.png)
 
-This picture was taken with version 1.1.0, so it shows the earlier popup. The popup of version 1.3.3:
+This picture was taken with version 1.1.0, so it shows the earlier popup. The popup since version 1.3.3:
 
-<img src="docs/images/extension-popup.png" alt="The extension's popup in version 1.3.3" width="360">
+<img src="docs/images/extension-popup.png" alt="The extension's popup" width="360">
 
 ### Install the extension
 
 - **Chrome or Edge:**
-  1. Download `Media-Enhancement-Browser-1.3.3-Chrome-Edge.zip` and unzip it to a folder you keep.
+  1. Download `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.3.3-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
+- **Firefox:** download `Media-Enhancement-Browser-1.3.5-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
 
 ### Use the extension
 
@@ -134,6 +134,7 @@ The extension shows fewer generated frames than you chose when your display's re
 - Brightness, contrast and saturation also apply while the extension steps aside for the video's own controls or captions, when the browser withholds frames, when the graphics card is busy, and for video the page may not read (another site's, or a file from your computer). They then also apply to the video's own captions and controls, so at low brightness or contrast captions are dimmer. In the other cases above, and for copy-protected video, they do not apply. Sharpness applies only to the enhanced picture.
 - In Firefox, a video with oval corners is drawn by Firefox a little narrower at the sides than the page sets. The enhanced picture fills the whole oval, and while the extension shows the video as it is, brightness, contrast and saturation also apply to the thin strips of page at the sides.
 - If a stream's frame rate drops sharply while it plays (from 60 to 15 fps, say), no frames are generated for the rest of that video.
+- Where the picture moves too fast for clean in-between frames, the extension shows the source frames for that moment instead of generated ones, so fast action can look less smooth than the rest of the video.
 - A scene cut can be missed when the two pictures still match after motion, or when it comes in the middle of fast action; the two frames are then blended for one frame interval. A flickering passage or a fade can be taken for a cut; the picture then holds for one frame interval, as without frame generation.
 
 ### Extension privacy
