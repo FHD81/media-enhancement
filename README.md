@@ -19,7 +19,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.6.exe`.
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.7.exe`. It can also install the converter (an option in Setup).
 - **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.5-Firefox.xpi`. See [Browser extension](#browser-extension).
 - **For converting files:** the converter preview, `Media-Enhancement-Converter-0.3.0.zip`. See [Converter](#converter).
 
@@ -35,7 +35,7 @@ All are in the [latest release](../../releases/latest), whose notes list the SHA
 ## Install
 
 1. Run the installer. Windows may show a SmartScreen warning because the installer is not code-signed. Continue only if you downloaded it from this repository's releases.
-2. Setup installs Media Enhancement in Program Files, so Windows asks for administrator permission. Setup then adds the filter to MPC-HC and installs the Microsoft Visual C++ runtime if needed.
+2. Setup installs Media Enhancement in Program Files, so Windows asks for administrator permission. Setup then adds the filter to MPC-HC and installs the Microsoft Visual C++ runtime if needed. Tick **Media Enhancement Converter** on the options page to install the converter as well; it gets its own Start-menu shortcut.
 3. Open a video in MPC-HC.
 
 ## Use
@@ -157,8 +157,8 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- It needs Media Enhancement installed: the converter uses the NVIDIA runtime that Setup installs. The download contains no NVIDIA files.
-- Unzip `Media-Enhancement-Converter-0.3.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. The original files are not changed.
+- Install it with Setup 1.4.7 (the Media Enhancement Converter option), or use `Media-Enhancement-Converter-0.3.0.zip` without an installer: it needs Media Enhancement installed for the NVIDIA runtime and contains no NVIDIA files.
+- For the zip: unzip `Media-Enhancement-Converter-0.3.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. The original files are not changed.
 - `MediaEnhancementConvert.exe` is the same engine for the command line; `README.txt` in the download lists its options.
 - Tested: the engine's 20-case suite on an RTX 5060, including the preview pictures.
 - The download includes FFmpeg 9.0 libraries (LGPL version 3, unchanged); see `README.txt` and `FFmpeg LICENSE.txt` in it.
