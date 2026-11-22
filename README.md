@@ -146,6 +146,8 @@ The extension runs only on your computer and does not collect or send any data. 
 
 A preview. It converts a video file to a new file with the same enhancements (upscaling, grain removal, sharpening and frame generation), so the result plays anywhere, also on devices without an NVIDIA card.
 
+![The converter's window while it converts a video to 4K at 60 fps](docs/images/converter.png)
+
 - It needs Media Enhancement installed: the converter uses the NVIDIA runtime that Setup installs. The download contains no NVIDIA files.
 - Unzip `Media-Enhancement-Converter-0.1.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. Add your videos, choose the settings and start. The original files are not changed.
 - `MediaEnhancementConvert.exe` is the same engine for the command line; `README.txt` in the download lists its options.
