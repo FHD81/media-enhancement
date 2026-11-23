@@ -19,9 +19,8 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.7.exe`. It can also install the converter (an option in Setup).
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.3.5-Firefox.xpi`. See [Browser extension](#browser-extension).
-- **For converting files:** the converter preview, `Media-Enhancement-Converter-0.3.0.zip`. See [Converter](#converter).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.9.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
+- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.1-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.1-Firefox.xpi`. See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -50,7 +49,7 @@ The settings can be changed in three places. They all change the same settings, 
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page show example settings, not the defaults. The control center picture was taken with version 1.4.6. The menu and panel pictures were taken with version 1.1.0, so the frame generation lists in them end at 4×.
+The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page were taken with version 1.4.9 and show example settings, not the defaults: a saved custom profile, Night films, with frame generation at 4×.
 
 ## Features
 
@@ -58,6 +57,8 @@ The menu's Status line and the panel's status box show live figures while a vide
   - Auto chooses Movie, TV or Anime for each video and uses the recommended levels for that kind of video.
   - Movie, TV and Anime each keep their own grain removal, upscaling, detail and sharpening levels for each video height, which you can change.
   - Off turns the picture treatment off.
+  - **Custom profiles:** Save as saves the levels shown, the frame generation multiple and the priority under a name of your own; choose it from the profile list (also in Play › Filters) to use it again, and Delete removes it. Up to 32.
+- **Sliders:** the levels are sliders. A level stronger than the strongest one the project's picture measurements accepted is shown in red; you can still choose it. Frame generation is a strip of bars: tall bars are the video's frames, short bars the generated ones, red past what your display can show.
 - **Upscaling:** NVIDIA Video Super Resolution enlarges video to the display size. Video that is already the display size can get a detail pass instead.
 - **Film grain removal and sharpening:**
   - Grain removal uses NVIDIA's effect.
@@ -102,16 +103,17 @@ This picture was taken with version 1.1.0, so it shows the earlier popup. The po
 ### Install the extension
 
 - **Chrome or Edge:**
-  1. Download `Media-Enhancement-Browser-1.3.5-Chrome-Edge.zip` and unzip it to a folder you keep.
+  1. Download `Media-Enhancement-Browser-1.4.1-Chrome-Edge.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.3.5-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
+- **Firefox:** download `Media-Enhancement-Browser-1.4.1-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
 
 ### Use the extension
 
 1. Play a video on a page.
 2. Click the extension's icon and choose **On this page** under Enhancement, or press Alt+Shift+E.
 3. Choose upscaling (up to 4K, or off) and frame generation (off, 2× to 10×, or Match display, which uses the highest whole multiple your display can show), and set the picture controls if you like; Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
+4. To keep a combination, choose **Save** beside Profile and give it a name; choose it from the Profile list later. **Delete** removes the profile shown (it asks once).
 
 To have the extension switch on by itself, choose **Automatic** under Enhancement in the popup. The browser first asks you to let the extension access all sites. The extension then switches on when a video plays with its sound on, on any site. It leaves muted videos alone until you switch their sound on, and it also leaves small videos and short previews alone. If you switch it off in a tab, it stays off there until the tab shows another page. Choose **Off** or **On this page** to give the access back.
 
@@ -150,18 +152,18 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 - **Preview before converting.** The original frame is on the left and the enhanced frame on the right. Move the seek bar to any scene, zoom in with the mouse wheel (up to 64×) and drag to move the picture. "Show a generated frame" shows a frame made by frame generation.
 - **Split view** shows one picture with a divider you can drag between the original and the enhanced side.
-- **Choose the result:** a preset, or the size, frame rate, upscaling, grain removal, sharpening, motion quality, file format, codec and quality.
+- **Choose the result:** a preset, or the size, frame rate, upscaling, grain removal, sharpening, motion quality, file format, codec and quality. **Save as** keeps your own combination as a preset; **Delete** removes it.
+- **Anime:** choose Anime under Content, and drawings that are held for two or three frames are filled with generated frames.
 - **Trim:** "Start here" and "End here" convert only part of a video.
 - **Estimates:** "Preview 10 s" converts ten seconds from the seek bar's position and estimates the size and time of the whole conversion.
 - **Still text and overlays** keeps text, logos and game displays steady in generated frames. It is off by default and was measured only on game recordings at 1920×1080 and 2×.
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- Install it with Setup 1.4.7 (the Media Enhancement Converter option), or use `Media-Enhancement-Converter-0.3.0.zip` without an installer: it needs Media Enhancement installed for the NVIDIA runtime and contains no NVIDIA files.
-- For the zip: unzip `Media-Enhancement-Converter-0.3.0.zip`, keep its files together and start `Media Enhancement Converter.exe`. The original files are not changed.
-- `MediaEnhancementConvert.exe` is the same engine for the command line; `README.txt` in the download lists its options.
-- Tested: the engine's 20-case suite on an RTX 5060, including the preview pictures.
-- The download includes FFmpeg 9.0 libraries (LGPL version 3, unchanged); see `README.txt` and `FFmpeg LICENSE.txt` in it.
+- Install it with Setup 1.4.9: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
+- `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
+- Tested: the engine's 20-case suite on an RTX 4070 Laptop GPU with a 240 Hz display, including the preview pictures.
+- It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
 
 ## Licence
 
@@ -171,6 +173,6 @@ The installer includes third-party components under their own licences. The NVID
 
 The browser extension is licensed in the same way. It contains code ported from AMD FidelityFX Super Resolution 1 and from Matt Pettineo's Catmull-Rom sampling (both MIT licence), and follows OpenCV's implementation of DIS optical flow (Apache License 2.0); see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-The video in the browser extension picture is from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+The video in the browser extension and converter pictures is from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 
 NVIDIA, GeForce and RTX are trademarks or registered trademarks of NVIDIA Corporation in the United States and other countries. Other product names are trademarks of their owners.
