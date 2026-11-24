@@ -5,6 +5,8 @@
   </picture>
 </h1>
 
+[![Download the latest release](https://img.shields.io/github/v/release/FHD81/media-enhancement?label=download&color=5E769C&style=for-the-badge)](../../releases/latest)
+
 Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX graphics card. It upscales video to your display with NVIDIA Video Super Resolution, can remove film grain and sharpen the picture, and can generate in-between frames for smoother motion (2× to 10×, or matched to your display's refresh rate).
 
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
