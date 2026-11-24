@@ -20,7 +20,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.2.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.6-Firefox.xpi`. See [Browser extension](#browser-extension). The Firefox file is added to the release once Mozilla has signed it; until then, use the Firefox file of [release 1.4.9](../../releases/tag/v1.4.9) (extension 1.4.1).
+- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.6-Firefox.xpi`. See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -107,7 +107,7 @@ The pictures were taken with version 1.4.6. The popup:
   1. Download `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.4.6-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla signs it for installation outside the add-ons site; until the signed 1.4.6 file is in the release, the 1.4.1 file of release 1.4.9 installs the same way.
+- **Firefox:** download `Media-Enhancement-Browser-1.4.6-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
 
 ### Use the extension
 
