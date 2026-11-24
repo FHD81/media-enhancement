@@ -19,8 +19,8 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.4.9.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.1-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.1-Firefox.xpi`. See [Browser extension](#browser-extension).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.2.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
+- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.6-Firefox.xpi`. See [Browser extension](#browser-extension). The Firefox file is added to the release once Mozilla has signed it; until then, use the Firefox file of [release 1.4.9](../../releases/tag/v1.4.9) (extension 1.4.1).
 
 ## Requirements
 
@@ -28,13 +28,14 @@ All are in the [latest release](../../releases/latest), whose notes list the SHA
 - An NVIDIA RTX graphics card with a current NVIDIA driver:
   - **Upscaling and picture effects:** RTX 20 series or newer.
   - **Frame generation:** RTX 40 or RTX 50 series.
-- MPC-HC 2.8 or newer. Setup installs MPC-HC 2.8.5 when no MPC-HC is found.
-- About 2 GB of free disk space, most of it for the NVIDIA runtime files.
+- MPC-HC 2.8 or newer. Setup downloads and installs MPC-HC 2.8.5 when no MPC-HC is found.
+- An internet connection when Setup has to download MPC-HC (22 MB) or the Microsoft Visual C++ runtime (18 MB); the installer no longer carries them.
+- About 1 GB of free disk space, most of it for the NVIDIA runtime files.
 
 ## Install
 
 1. Run the installer. Windows may show a SmartScreen warning because the installer is not code-signed. Continue only if you downloaded it from this repository's releases.
-2. Setup installs Media Enhancement in Program Files, so Windows asks for administrator permission. Setup then adds the filter to MPC-HC and installs the Microsoft Visual C++ runtime if needed. Tick **Media Enhancement Converter** on the options page to install the converter as well; it gets its own Start-menu shortcut.
+2. Setup installs Media Enhancement in Program Files, so Windows asks for administrator permission. Setup then adds the filter to MPC-HC and downloads and installs the Microsoft Visual C++ runtime if needed. Tick **Media Enhancement Converter** on the options page to install the converter as well; it gets its own Start-menu shortcut.
 3. Open a video in MPC-HC.
 
 ## Use
@@ -58,11 +59,11 @@ The menu's Status line and the panel's status box show live figures while a vide
   - Movie, TV and Anime each keep their own grain removal, upscaling, detail and sharpening levels for each video height, which you can change.
   - Off turns the picture treatment off.
   - **Custom profiles:** Save as saves the levels shown, the frame generation multiple and the priority under a name of your own; choose it from the profile list (also in Play › Filters) to use it again, and Delete removes it. Up to 32.
-- **Sliders:** the levels are sliders. A level stronger than the strongest one the project's picture measurements accepted is shown in red; you can still choose it. Frame generation is a strip of bars: tall bars are the video's frames, short bars the generated ones, red past what your display can show.
+- **Sliders:** the levels are sliders. A level stronger than the strongest one the project's picture measurements accepted is shown in red; you can still choose it. Frame generation is a strip of bars: tall bars are the video's frames, short bars the generated ones, red past what your display can show. Click a slider where you want it, or drag it.
 - **Upscaling:** NVIDIA Video Super Resolution enlarges video to the display size. Video that is already the display size can get a detail pass instead.
 - **Film grain removal and sharpening:**
   - Grain removal uses NVIDIA's effect.
-  - Sharpening is the filter's own contrast-adaptive pass. It sharpens edges without halos.
+  - Sharpening is the filter's own contrast-adaptive pass. It sharpens edges without halos and leaves grain, noise and flat areas as they are.
 - **Frame generation:** NVIDIA Video Frame Generation at 2× to 10×, matched to the display's refresh rate, or off. The multiples from 7× to 10× are for 240 Hz displays. The quality can be Auto, High, Medium or Low.
 - **Scene cuts and fast motion:** at a scene cut, and where the picture changes too fast for clean in-between frames, the filter shows source frames instead of generated ones.
 - **Automatic fit:**
@@ -90,32 +91,31 @@ The browser extension enhances video that plays in a web page:
 
 - **Upscaling:** it enlarges the picture to the size the video is shown at on your screen, up to 3840×2160, and sharpens it.
 - **Frame generation:** it adds generated in-between frames, 2× to 10× or matched to your display, never more than your display's refresh rate. At a scene cut it shows the two shots one after the other instead of blending them.
-- **Picture controls:** brightness, contrast, saturation and sharpness.
+- **Picture controls:** brightness, contrast, saturation and sharpness. Sharpness turns red above 80 %, the strongest setting that kept edges and flat areas within the measured limits on the test films; 80 % is the default.
 
 It runs on your graphics card through WebGPU, inside the page. It does not use MPC-HC or the NVIDIA effects, so it is not limited to NVIDIA cards.
 
 ![The extension's popup over a video playing in Chrome](docs/images/extension.png)
 
-This picture was taken with version 1.1.0, so it shows the earlier popup. The popup since version 1.3.3:
+The pictures were taken with version 1.4.6. The popup:
 
 <img src="docs/images/extension-popup.png" alt="The extension's popup" width="360">
 
 ### Install the extension
 
 - **Chrome or Edge:**
-  1. Download `Media-Enhancement-Browser-1.4.1-Chrome-Edge.zip` and unzip it to a folder you keep.
+  1. Download `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.4.1-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
+- **Firefox:** download `Media-Enhancement-Browser-1.4.6-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla signs it for installation outside the add-ons site; until the signed 1.4.6 file is in the release, the 1.4.1 file of release 1.4.9 installs the same way.
 
 ### Use the extension
 
 1. Play a video on a page.
-2. Click the extension's icon and choose **On this page** under Enhancement, or press Alt+Shift+E.
-3. Choose upscaling (up to 4K, or off) and frame generation (off, 2× to 10×, or Match display, which uses the highest whole multiple your display can show), and set the picture controls if you like; Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
-4. To keep a combination, choose **Save** beside Profile and give it a name; choose it from the Profile list later. **Delete** removes the profile shown (it asks once).
+2. Click the extension's icon and choose **On this page** in the list at the top, or press Alt+Shift+E.
+3. Choose upscaling (up to 4K, or off) and frame generation (off, 2× to 10×, or Match display, the default, which uses the highest whole multiple your display can show), and set the picture controls if you like (click a slider where you want it, or drag it); Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
 
-To have the extension switch on by itself, choose **Automatic** under Enhancement in the popup. The browser first asks you to let the extension access all sites. The extension then switches on when a video plays with its sound on, on any site. It leaves muted videos alone until you switch their sound on, and it also leaves small videos and short previews alone. If you switch it off in a tab, it stays off there until the tab shows another page. Choose **Off** or **On this page** to give the access back.
+The extension switches on by itself (**Automatic**, the default): when you install it, the browser asks you to let it access all sites. It then switches on when a video plays with its sound on, on any site. It leaves muted videos alone until you switch their sound on, and it also leaves small videos and short previews alone. If you switch it off in a tab, it stays off there until the tab shows another page. Choose **Off** or **On this page** to switch Automatic off; choose **Automatic** to switch it on again.
 
 The extension shows fewer generated frames than you chose when your display's refresh rate cannot show them. When playback would not stay smooth, it steps down for a while: fewer generated frames first, then no upscaling, then the video as it is.
 
@@ -142,7 +142,7 @@ The extension shows fewer generated frames than you chose when your display's re
 
 ### Extension privacy
 
-The extension runs only on your computer and does not collect or send any data. It keeps only its own settings, in the browser. It asks for the active-tab, scripting and storage permissions. By default it runs on a page only when you switch it on there. If you choose Automatic, the browser first asks you to give the extension access to all websites. The extension then adds a small script to every page you open, which only notices when a video plays, and it switches the enhancement on in a page where a large video plays with its sound on. As when you switch it on yourself, the page can see the enhanced picture and the settings it uses. Choosing Off or On this page takes that access back.
+The extension runs only on your computer and does not collect or send any data. It keeps only its own settings, in the browser. It asks for the active-tab, scripting and storage permissions. When you install it, the browser asks you to give it access to all websites, which Automatic, the default, needs. The extension then adds a small script to every page you open, which only notices when a video plays, and it switches the enhancement on in a page where a large video plays with its sound on. As when you switch it on yourself, the page can see the enhanced picture and the settings it uses. Choosing Off or On this page switches Automatic off; you can take the access back in the browser's extension settings.
 
 ## Converter
 
@@ -160,9 +160,9 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- Install it with Setup 1.4.9: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
+- Install it with Setup 1.5.2: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
 - `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
-- Tested: the engine's 20-case suite on an RTX 4070 Laptop GPU with a 240 Hz display, including the preview pictures.
+- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.2) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0, with the preview pictures).
 - It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
 
 ## Licence

@@ -13,14 +13,14 @@ The Media Enhancement installer contains or installs the software below, and the
 
 ## MPC-HC 2.8.5
 
-- **What:** the unmodified MPC-HC installer. Setup runs it only when MPC-HC is missing, or when you choose to update it.
+- **What:** the unmodified MPC-HC installer. From version 1.5.0 Setup does not carry it: it downloads it from the MPC-HC project's 2.8.5 release, checks its SHA-256, and runs it only when MPC-HC is missing, or when you choose to update it.
 - **Licence:** GNU General Public License, version 3. The licence text is installed with MPC-HC.
 - **Source code:** <https://github.com/clsid2/mpc-hc>. This build is published in the release tagged 2.8.5: <https://github.com/clsid2/mpc-hc/releases/tag/2.8.5>.
 - **Relationship:** Media Enhancement contains no MPC-HC code. MPC-HC loads it as an external DirectShow filter.
 
 ## Microsoft Visual C++ Redistributable (x64)
 
-- **What:** the unmodified Microsoft Visual C++ runtime installer, version 14.40 or newer. The NVIDIA runtime files need it. Setup runs it only when the runtime is missing or older.
+- **What:** the unmodified Microsoft Visual C++ runtime installer, version 14.40 or newer. The NVIDIA runtime files need it. From version 1.5.0 Setup does not carry it: it downloads it from Microsoft, checks Microsoft's signature, and runs it only when the runtime is missing or older.
 - **Licence:** Microsoft's licence terms for the Visual C++ runtime. Its installer shows them when it runs on its own, but Setup runs it silently. Microsoft's download page: <https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist>.
 
 ## Microsoft DirectShow base classes
