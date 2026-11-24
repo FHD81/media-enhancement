@@ -15,7 +15,7 @@ https://github.com/user-attachments/assets/4eaf30e4-067b-4c37-8afa-46ca031bc868
 
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
 
-A [converter](#converter) applies the same enhancements to video files, so the result plays anywhere. A [browser extension](#browser-extension) brings upscaling, frame generation and picture controls to video played in Chrome, Edge and Firefox.
+A [converter](#converter) applies the same enhancements to video files, so the result plays anywhere. A [browser extension](#browser-extension) brings upscaling, frame generation and picture controls to video played in Chrome, Edge, Brave and Firefox.
 
 ![The Media Enhancement control center](docs/images/control-center.png)
 
@@ -26,7 +26,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.2.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
-- **For Chrome, Edge and Firefox:** the extension, `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and `Media-Enhancement-Browser-1.4.6-Firefox.xpi`. See [Browser extension](#browser-extension).
+- **For Chrome, Edge, Brave and Firefox:** the extension, `Media-Enhancement-Browser-1.4.9-Chrome-Edge-Brave.zip` and, for Firefox, `Media-Enhancement-Browser-1.4.7-Firefox.xpi` (the newer version follows once Mozilla has reviewed it). See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -96,31 +96,34 @@ Use Settings › Apps › Installed apps › Media Enhancement › Uninstall, or
 
 The browser extension enhances video that plays in a web page:
 
-- **Upscaling:** it enlarges the picture to the size the video is shown at on your screen, up to 3840×2160, and sharpens it.
-- **Frame generation:** it adds generated in-between frames, 2× to 10× or matched to your display, never more than your display's refresh rate. At a scene cut it shows the two shots one after the other instead of blending them.
-- **Picture controls:** brightness, contrast, saturation and sharpness. Sharpness turns red above 80 %, the strongest setting that kept edges and flat areas within the measured limits on the test films; 80 % is the default.
+- **Upscaling:** it enlarges the picture to the size the video is shown at on your screen, up to 3840×2160 or a smaller size you choose (2560×1440 or 1920×1080), and sharpens it. The quality can be Fast (bilinear, the least work for the graphics card), Standard (Catmull-Rom, the default) or High (edge-adaptive, AMD FidelityFX Super Resolution 1 EASU).
+- **Frame generation:** it adds generated in-between frames, 2× to 10× or matched to your display, never more pictures than your display's refresh rate. Match display, the default, generates enough frames for a new picture on every refresh, 5× for 24 or 25 fps video on a 120 Hz display, and none when a frame lasts less than 1.75 refreshes (50 fps video on a 60 Hz display, for example). At a scene cut it shows the two shots one after the other instead of blending them.
+- **Picture controls:** brightness, contrast, saturation and sharpness. Sharpness turns red above the strongest setting that kept edges and flat areas within the measured limits on the test films: 90 % with Fast upscaling, 80 % with Standard and 60 % with High. Its default is 80 %, or 60 % with High.
+- **Frame rate on the toolbar button:** while the extension enhances a video, its toolbar button shows the frame rate. On blue, it is the pictures a second the extension draws; on grey, the video's own frame rate while the extension shows the video as it is; 0 while the video is paused or loading.
 
 It runs on your graphics card through WebGPU, inside the page. It does not use MPC-HC or the NVIDIA effects, so it is not limited to NVIDIA cards.
 
+**Firefox on Windows:** with its system compositor, Firefox put only part of the generated frames on the screen: at 3840×2160 on a 120 Hz display, 73 a second of 24 fps video at 5× instead of 120. The extension therefore switches that compositor off (the setting `gfx.webrender.compositor`) when it is installed. Restart Firefox once; until then the popup reminds you. Firefox needs the compositor for HDR video, so the popup has a switch, **Allow HDR video** (off by default), that gives Firefox its own setting back after a restart. Firefox also restores its own setting when the extension is disabled or removed.
+
 ![The extension's popup over a video playing in Chrome](docs/images/extension.png)
 
-The pictures were taken with version 1.4.6. The popup:
+The pictures were taken with version 1.4.9. The popup:
 
 <img src="docs/images/extension-popup.png" alt="The extension's popup" width="360">
 
 ### Install the extension
 
-- **Chrome or Edge:**
-  1. Download `Media-Enhancement-Browser-1.4.6-Chrome-Edge.zip` and unzip it to a folder you keep.
-  2. Open `chrome://extensions` (in Edge, `edge://extensions`) and switch on Developer mode.
+- **Chrome, Edge or Brave:**
+  1. Download `Media-Enhancement-Browser-1.4.9-Chrome-Edge-Brave.zip` and unzip it to a folder you keep.
+  2. Open `chrome://extensions` (in Edge, `edge://extensions`; in Brave, `brave://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.4.6-Firefox.xpi` and open it in Firefox, or choose Install Add-on From File on the `about:addons` page. Mozilla has signed it for installation outside the add-ons site.
+- **Firefox:** download `Media-Enhancement-Browser-1.4.7-Firefox.xpi` and open it in Firefox (or choose Install Add-on From File on the `about:addons` page); Mozilla has signed it. It is version 1.4.7: it has the frame rate on the toolbar button and the change for Firefox on Windows described above, but not yet the upscaling sizes and qualities or Match display's new rule (it gives 4× for 25 fps video on a 120 Hz display). The newer version is waiting for Mozilla's review on [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/), where it is a new add-on: before you install it from there, remove the earlier version on the `about:addons` page. On Windows, restart Firefox once after installing.
 
 ### Use the extension
 
 1. Play a video on a page.
 2. Click the extension's icon and choose **On this page** in the list at the top, or press Alt+Shift+E.
-3. Choose upscaling (up to 4K, or off) and frame generation (off, 2× to 10×, or Match display, the default, which uses the highest whole multiple your display can show), and set the picture controls if you like (click a slider where you want it, or drag it); Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
+3. Choose upscaling (up to 4K, 1440p or 1080p, or off) and its quality, and frame generation (off, 2× to 10×, or Match display, the default, which chooses the multiple for your display's refresh rate), and set the picture controls if you like (click a slider where you want it, or drag it); Reset brings them back. The popup shows the video's size and frame rate and what is shown on the screen.
 
 The extension switches on by itself (**Automatic**, the default): when you install it, the browser asks you to let it access all sites. It then switches on when a video plays with its sound on, on any site. It leaves muted videos alone until you switch their sound on, and it also leaves small videos and short previews alone. If you switch it off in a tab, it stays off there until the tab shows another page. Choose **Off** or **On this page** to switch Automatic off; choose **Automatic** to switch it on again.
 
@@ -128,7 +131,7 @@ The extension shows fewer generated frames than you chose when your display's re
 
 ### Extension requirements
 
-- Chrome or Edge 121 or newer, or Firefox 144 or newer, with WebGPU available. The browser versions tested are listed in the release notes.
+- Chrome or Edge 121 or newer, Brave on Chromium 121 or newer, or Firefox 144 or newer, with WebGPU available. The browser versions tested are listed in the release notes.
 - A graphics card that the browser can use for WebGPU. Frame generation at 4K needs a fast dedicated graphics card.
 
 ### Extension limits
@@ -149,7 +152,7 @@ The extension shows fewer generated frames than you chose when your display's re
 
 ### Extension privacy
 
-The extension runs only on your computer and does not collect or send any data. It keeps only its own settings, in the browser. It asks for the active-tab, scripting and storage permissions. When you install it, the browser asks you to give it access to all websites, which Automatic, the default, needs. The extension then adds a small script to every page you open, which only notices when a video plays, and it switches the enhancement on in a page where a large video plays with its sound on. As when you switch it on yourself, the page can see the enhanced picture and the settings it uses. Choosing Off or On this page switches Automatic off; you can take the access back in the browser's extension settings.
+The extension runs only on your computer and does not collect or send any data. It keeps only its own settings, in the browser. It asks for the active-tab, scripting and storage permissions, and in Firefox also for browser settings, which it uses only to switch Firefox's system compositor off or back on (see Firefox on Windows above). When you install it, the browser asks you to give it access to all websites, which Automatic, the default, needs. The extension then adds a small script to every page you open, which only notices when a video plays, and it switches the enhancement on in a page where a large video plays with its sound on. As when you switch it on yourself, the page can see the enhanced picture and the settings it uses. Choosing Off or On this page switches Automatic off; you can take the access back in the browser's extension settings.
 
 ## Converter
 
