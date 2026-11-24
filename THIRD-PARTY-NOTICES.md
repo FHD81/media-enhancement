@@ -115,6 +115,6 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 - **`dis_flow.cpp` licence header:** that file carries OpenCV's earlier 3-clause BSD licence header (Copyright (C) 2000-2008, Intel Corporation; Copyright (C) 2009, Willow Garage Inc.; third-party copyrights are property of their respective owners). The header is reproduced in full in `THIRD-PARTY-NOTICES.txt` inside each extension package.
 - **Source code:** <https://github.com/opencv/opencv>.
 
-## Picture in the README
+## Pictures in the README
 
-The video in the README's browser extension picture is from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under the Creative Commons Attribution 3.0 licence: <https://creativecommons.org/licenses/by/3.0/>.
+The film frames in the README's browser extension picture and converter pictures are from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under the Creative Commons Attribution 3.0 licence: <https://creativecommons.org/licenses/by/3.0/>.
