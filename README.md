@@ -9,6 +9,10 @@
 
 Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX graphics card. It upscales video to your display with NVIDIA Video Super Resolution, can remove film grain and sharpen the picture, and can generate in-between frames for smoother motion (2× to 10×, or matched to your display's refresh rate).
 
+https://github.com/user-attachments/assets/4eaf30e4-067b-4c37-8afa-46ca031bc868
+
+*Left: the original at 24 fps, enlarged with bicubic. Right: Media Enhancement at 60 fps with Video Super Resolution and frame generation (the converter's "4K at 60 fps" settings). Film: Tears of Steel, (CC) Blender Foundation | mango.blender.org, CC BY 3.0.*
+
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
 
 A [converter](#converter) applies the same enhancements to video files, so the result plays anywhere. A [browser extension](#browser-extension) brings upscaling, frame generation and picture controls to video played in Chrome, Edge and Firefox.
