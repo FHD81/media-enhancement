@@ -9,7 +9,7 @@ Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX gr
 
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
 
-A [browser extension](#browser-extension) brings upscaling, frame generation and picture controls to video played in Chrome, Edge and Firefox.
+A [converter](#converter) applies the same enhancements to video files, so the result plays anywhere. A [browser extension](#browser-extension) brings upscaling, frame generation and picture controls to video played in Chrome, Edge and Firefox.
 
 ![The Media Enhancement control center](docs/images/control-center.png)
 
@@ -50,7 +50,7 @@ The settings can be changed in three places. They all change the same settings, 
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page were taken with version 1.4.9 and show example settings, not the defaults: a saved custom profile, Night films, with frame generation at 4×.
+The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page were taken with version 1.5.2 and show the Movie profile with its default levels, with frame generation set to 4×.
 
 ## Features
 
@@ -72,7 +72,8 @@ The menu's Status line and the panel's status box show live figures while a vide
   - It greys out settings that have no effect on your display.
   - It marks a choice that would lower frame generation with the rate it lowers to (for example "→ 3×"), and a choice that is too slow on your PC.
 - **A/B hotkey:** compares the enhanced picture with the original while the video plays.
-- **Experimental options**, off by default: HDR processing, direct GPU output to MPC Video Renderer, and native D3D11 decoding.
+- **Direct GPU output** (on by default): with MPC Video Renderer in its D3D11 mode, the filter hands its frames over as GPU textures, without a copy through system memory.
+- **Experimental options**, off by default: HDR processing and native D3D11 decoding.
 
 ## Limits
 
@@ -162,7 +163,7 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 - Install it with Setup 1.5.2: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
 - `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
-- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.2) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0, with the preview pictures).
+- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.2) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.2.
 - It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
 
 ## Licence
