@@ -25,7 +25,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.2.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.5.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
 - **For Chrome, Edge, Brave and Firefox:** the extension, `Media-Enhancement-Browser-1.4.9-Chrome-Edge-Brave.zip` and, for Firefox, `Media-Enhancement-Browser-1.4.7-Firefox.xpi` (the newer version follows once Mozilla has reviewed it). See [Browser extension](#browser-extension).
 
 ## Requirements
@@ -48,15 +48,15 @@ All are in the [latest release](../../releases/latest), whose notes list the SHA
 
 The settings can be changed in three places. They all change the same settings, and most changes apply to the playing video straight away.
 
-- **In MPC-HC:** Play › Filters › Media Enhancement. Properties in that menu opens the settings panel.
+- **In MPC-HC:** Play › Filters › Media Enhancement. The menu lists the status, the on/off switch and Picture, Frames and Options; each of these three opens its own menu, with a side branch for each group of choices. Properties in that menu opens the settings panel.
 - **Control center:** the Media Enhancement app in the Start menu. It also shows the live status of the playing video.
 - **Settings window:** Media Enhancement Settings in the Start menu, for quick changes.
 
-![The Media Enhancement menu in MPC-HC, under Play › Filters](docs/images/mpc-menu.png)
+![The Media Enhancement menu in MPC-HC, under Play › Filters, with Frames opened and its generation quality branch](docs/images/mpc-menu.png)
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The menu's Status line and the panel's status box show live figures while a video plays. They are left empty in these pictures. The pictures on this page were taken with version 1.5.2 and show the Movie profile with its default levels, with frame generation set to 4×.
+The menu's Status line and the panel's status box show live figures while a video plays. The menu picture joins two pictures taken with a 1.5.3 test build, whose menu is the one in 1.5.5, in the project's test player while a video played, with frame generation at 5×, generation quality Medium and Automatic fit off: the menu, and below it the Frames menu that opens from it (the Status line's figures are left out). The other pictures on this page were taken with version 1.5.5 with no video playing (the panel's status box is left empty) and show the Movie profile with its default levels, with frame generation set to 4×.
 
 ## Features
 
@@ -64,7 +64,7 @@ The menu's Status line and the panel's status box show live figures while a vide
   - Auto chooses Movie, TV or Anime for each video and uses the recommended levels for that kind of video.
   - Movie, TV and Anime each keep their own grain removal, upscaling, detail and sharpening levels for each video height, which you can change.
   - Off turns the picture treatment off.
-  - **Custom profiles:** Save as saves the levels shown, the frame generation multiple and the priority under a name of your own; choose it from the profile list (also in Play › Filters) to use it again, and Delete removes it. Up to 32.
+  - **Custom profiles:** Save as saves the levels shown, the frame generation multiple and the priority under a name of your own; choose it from the profile list (also under Picture in the MPC-HC menu) to use it again, and Delete removes it. Up to 32.
 - **Sliders:** the levels are sliders. A level stronger than the strongest one the project's picture measurements accepted is shown in red; you can still choose it. Frame generation is a strip of bars: tall bars are the video's frames, short bars the generated ones, red past what your display can show. Click a slider where you want it, or drag it.
 - **Upscaling:** NVIDIA Video Super Resolution enlarges video to the display size. Video that is already the display size can get a detail pass instead.
 - **Film grain removal and sharpening:**
@@ -77,6 +77,7 @@ The menu's Status line and the panel's status box show live figures while a vide
   - It favours either frame rate or picture quality, as you choose.
   - It greys out settings that have no effect on your display.
   - It marks a choice that would lower frame generation with the rate it lowers to (for example "→ 3×"), and a choice that is too slow on your PC.
+  - **You can switch it off** (Automatic fit, in the menu's Frames branch, the settings panel and the control center). The frame generation multiple, the generation quality and the picture levels then play exactly as you chose them, for example Medium at 6×, also when the filter's cost estimate says they will not fit; generated frames that would come late are left out instead. A fixed multiple still stops at what the display can show.
 - **A/B hotkey:** compares the enhanced picture with the original while the video plays.
 - **Direct GPU output** (on by default): with MPC Video Renderer in its D3D11 mode, the filter hands its frames over as GPU textures, without a copy through system memory.
 - **Experimental options**, off by default: HDR processing and native D3D11 decoding.
@@ -170,7 +171,7 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- Install it with Setup 1.5.2: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
+- Install it with Setup 1.5.5: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
 - `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
 - Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.2) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.2.
 - It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
