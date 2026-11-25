@@ -52,11 +52,9 @@ The settings can be changed in three places. They all change the same settings, 
 - **Control center:** the Media Enhancement app in the Start menu. It also shows the live status of the playing video.
 - **Compact settings:** a small settings window for quick changes. Open Media Enhancement Settings in the Start menu, or Compact settings in the control center.
 
-![The Media Enhancement menu in MPC-HC, under Play › Filters, with Frames opened and its generation quality branch](docs/images/mpc-menu.png)
-
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The menu's Status line and the panel's status box show live figures while a video plays. The menu picture joins two pictures taken with a 1.5.3 test build, whose menu is the one in 1.5.5, in the project's test player while a video played, with frame generation at 5×, generation quality Medium and Automatic fit off: the menu, and below it the Frames menu that opens from it (the Status line's figures are left out). The other pictures on this page were taken with version 1.5.5 with no video playing (the panel's status box is left empty) and show the Movie profile with its default levels, with frame generation set to 4×.
+The panel's status box shows live figures while a video plays. The pictures of the control center and the settings panel were taken with version 1.5.8 with no video playing, so the status box is empty. They show the Movie profile with its default levels and frame generation at 4×.
 
 ## Features
 
