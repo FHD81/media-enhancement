@@ -25,8 +25,8 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.5.8.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
-- **For Chrome, Edge, Brave and Firefox:** the extension, `Media-Enhancement-Browser-1.5.0-Chrome-Edge-Brave.zip` and, for Firefox, `Media-Enhancement-Browser-1.4.7-Firefox.xpi` (the newer version follows once Mozilla has reviewed it). See [Browser extension](#browser-extension).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.6.1.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
+- **For Chrome, Edge, Brave and Firefox:** the extension, `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip` and, for Firefox, `Media-Enhancement-Browser-1.4.7-Firefox.xpi` (the newer version follows once Mozilla has reviewed it). See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -62,7 +62,7 @@ The panel's status box shows live figures while a video plays. The pictures of t
   - Auto chooses Movie, TV or Anime for each video and uses the recommended levels for that kind of video.
   - Movie, TV and Anime each keep their own grain removal, upscaling, detail and sharpening levels for each video height, which you can change.
   - Off turns the picture treatment off.
-  - **Custom profiles:** Save as saves the levels shown, the frame rate and what to keep when the GPU is short under a name of your own; choose it from the profile list (also under Picture in the MPC-HC menu) to use it again, and Delete removes it. Up to 32.
+  - **Custom profiles:** Save as saves the levels shown, the frame rate and what to keep when the GPU is short under a name of your own; choose it from the profile list (also under Picture in the MPC-HC menu) to use it again, and Delete removes it. Up to 32. Apply saves changes to a custom profile; Cancel and Undo changes drop them.
 - **Sliders and switches:** every setting with steps is a slider, with a mark for each step, and every on/off setting is a switch. The profile is the only list. A level stronger than the strongest one the project's picture measurements accepted is shown in red; you can still choose it. Frame generation is a strip of bars: tall bars are the video's frames, short bars the generated ones, red past what your display can show. Click a slider where you want it, or drag it.
 - **Upscaling:** NVIDIA Video Super Resolution enlarges video to the display size. The Size slider goes from Original size to Up to 4320p (8K). Video that is already the display size can get a detail pass instead.
 - **Film grain removal and sharpening:**
@@ -70,13 +70,14 @@ The panel's status box shows live figures while a video plays. The pictures of t
   - Sharpening is the filter's own contrast-adaptive pass. It sharpens edges without halos and leaves grain, noise and flat areas as they are.
 - **Frame generation:** NVIDIA Video Frame Generation at 2× to 10×, matched to the display's refresh rate, or off. The multiples from 7× to 10× are for 240 Hz displays. The quality can be Auto, High, Medium or Low.
 - **Scene cuts and fast motion:** at a scene cut, and where the picture changes too fast for clean in-between frames, the filter shows source frames instead of generated ones.
+- **Bars and text that change in place:** at High quality, where something changes in place and the motion does not explain it, such as the bars of an audio waveform, the filter shows the nearer source frame instead of generated ones. It does this only when the change covers at most a tenth of the picture; on larger changes, such as water spray, NVIDIA's generated frames measured better.
 - **Adjust to the GPU automatically:**
   - The filter chooses the richest settings that fit a GPU time budget you can set.
   - When the GPU is short, it keeps the frame rate, or the picture if you switch on Keep the picture when the GPU is short.
   - It greys out settings that have no effect on your display.
   - It marks a choice that would lower frame generation with the rate it lowers to (for example "→ 3×"), and a choice that is too slow on your PC.
   - **You can switch it off** (Adjust to the GPU automatically, in the menu's Frame generation branch, the settings panel's GPU group and the control center's GPU box). The frame generation multiple, the generation quality and the picture levels then play exactly as you chose them, for example Medium at 6×, also when the filter's cost estimate says they will not fit; generated frames that would come late are left out instead. A fixed multiple still stops at what the display can show.
-- **On/off hotkey:** turns the enhancement off and on while the video plays, so you can compare. The key is Ctrl+Shift+E. If another program uses it, the key is Ctrl+Alt+E. The menu shows the key in use.
+- **On/off hotkey:** turns the enhancement off and on while the video plays, so you can compare. The key is Ctrl+Shift+E. If another program uses it, the key is Ctrl+Alt+E. The menu and the On/off hotkey switch show the key in use.
 - **Direct GPU output** (on by default): with MPC Video Renderer in its D3D11 mode, the filter hands its frames over as GPU textures, without a copy through system memory.
 - **Experimental options**, off by default: Enhance HDR video and native D3D11 decoding.
 - **Video memory:** when frame generation steps down to a lower quality, the higher quality's model is freed after 3 minutes.
@@ -97,7 +98,7 @@ Use Settings › Apps › Installed apps › Media Enhancement › Uninstall, or
 The browser extension enhances video that plays in a web page:
 
 - **Upscaling:** it enlarges the picture to the size the video is shown at on your screen, up to 3840×2160 or a smaller size you choose (2560×1440 or 1920×1080), and sharpens it. The quality can be Fast (bilinear, the least work for the graphics card), Standard (Catmull-Rom, the default) or High (edge-adaptive, AMD FidelityFX Super Resolution 1 EASU).
-- **Frame generation:** it adds generated in-between frames, 2× to 10× or matched to your display, never more pictures than your display's refresh rate. Match display, the default, generates enough frames for a new picture on every refresh, 5× for 24 or 25 fps video on a 120 Hz display, and none when a frame lasts less than 1.75 refreshes (50 fps video on a 60 Hz display, for example). At a scene cut it shows the two shots one after the other instead of blending them.
+- **Frame generation:** it adds generated in-between frames, 2× to 10× or matched to your display, never more pictures than your display's refresh rate. Match display, the default, generates enough frames for a new picture on every refresh, 5× for 24 or 25 fps video on a 120 Hz display, and none when a frame lasts less than 1.75 refreshes (50 fps video on a 60 Hz display, for example). At a scene cut it shows the two shots one after the other instead of blending them. It follows fast tickers, sliding titles, thin objects and bars, and where something changes in place and the motion does not explain it, such as the bars of an audio waveform, it shows the video's own frames.
 - **Picture controls:** brightness, contrast, saturation and sharpness. Sharpness turns red above the strongest setting that kept edges and flat areas within the measured limits on the test films: 90 % with Fast upscaling, 80 % with Standard and 60 % with High. Its default is 80 %, or 60 % with High.
 - **Frame rate on the toolbar button:** while the extension enhances a video, its toolbar button shows the frame rate. On blue, it is the pictures a second the extension draws; on grey, the video's own frame rate while the extension shows the video as it is; 0 while the video is paused or loading.
 
@@ -114,10 +115,10 @@ The pictures were taken with version 1.4.9. The popup:
 ### Install the extension
 
 - **Chrome, Edge or Brave:**
-  1. Download `Media-Enhancement-Browser-1.5.0-Chrome-Edge-Brave.zip` and unzip it to a folder you keep.
+  1. Download `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`; in Brave, `brave://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** download `Media-Enhancement-Browser-1.4.7-Firefox.xpi` and open it in Firefox (or choose Install Add-on From File on the `about:addons` page); Mozilla has signed it. It is version 1.4.7: it has the frame rate on the toolbar button and the change for Firefox on Windows described above, but not yet the upscaling sizes and qualities, Match display's new rule (it gives 4× for 25 fps video on a 120 Hz display) or the sliders of 1.5.0. The newer version is waiting for Mozilla's review on [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/), where it is a new add-on: before you install it from there, remove the earlier version on the `about:addons` page. On Windows, restart Firefox once after installing.
+- **Firefox:** download `Media-Enhancement-Browser-1.4.7-Firefox.xpi` and open it in Firefox (or choose Install Add-on From File on the `about:addons` page); Mozilla has signed it. It is version 1.4.7: it has the frame rate on the toolbar button and the change for Firefox on Windows described above, but not yet 1.5.0's upscaling sizes and qualities, Match display's new rule (it gives 4× for 25 fps video on a 120 Hz display) and sliders, or 1.5.1's better in-between frames for fast text, thin objects and bars. The newer version is waiting for Mozilla's review on [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/), where it is a new add-on: before you install it from there, remove the earlier version on the `about:addons` page. On Windows, restart Firefox once after installing.
 
 ### Use the extension
 
@@ -167,12 +168,13 @@ A preview. It converts a video file to a new file with the same enhancements (up
 - **Trim:** "Start here" and "End here" convert only part of a video.
 - **Estimates:** "Preview 10 s" converts ten seconds from the seek bar's position and estimates the size and time of the whole conversion.
 - **Keep still text and overlays steady** keeps text, logos and game displays steady in generated frames. It is off by default and was measured only on game recordings at 1920×1080 and 2×.
+- **Bars and text that change in place** get the same check as in MPC-HC when Best motion quality is on (the default).
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- Install it with Setup 1.5.8: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
+- Install it with Setup 1.6.1: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
 - `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
-- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.3) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.3.
+- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.7) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.3.
 - It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
 
 ## Licence
