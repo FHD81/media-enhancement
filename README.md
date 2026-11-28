@@ -9,9 +9,19 @@
 
 Media Enhancement improves video playback in MPC-HC on PCs with an NVIDIA RTX graphics card. It upscales video to your display with NVIDIA Video Super Resolution, can remove film grain and sharpen the picture, and can generate in-between frames for smoother motion (2× to 10×, or matched to your display's refresh rate).
 
-https://github.com/user-attachments/assets/4eaf30e4-067b-4c37-8afa-46ca031bc868
+https://github.com/user-attachments/assets/1b4fbe3c-7299-45dd-8be0-74865614be87
 
-*Left: the original at 24 fps, enlarged with bicubic. Right: Media Enhancement at 60 fps with Video Super Resolution and frame generation (the converter's "4K at 60 fps" settings). Film: Tears of Steel, (CC) Blender Foundation | mango.blender.org, CC BY 3.0.*
+*One picture in three strips. Left: the original at 24 fps, enlarged with bicubic. Middle and right: Media Enhancement at 60 fps and at 120 fps, with Video Super Resolution and frame generation (the converter's 4K settings). The 120 fps strip needs a 120 Hz display; on a 60 Hz display it looks like the 60 fps strip. Film: Tears of Steel, (CC) Blender Foundation | mango.blender.org, CC BY 3.0.*
+
+**Upscaling a 720p video to 4K:**
+
+https://github.com/user-attachments/assets/3fd3199e-ceec-4056-8556-0a1c6fc48b23
+
+*Part of the picture at 200 %. Left of the divider: the 720p video enlarged with bicubic. Right of it: enlarged by Media Enhancement with Video Super Resolution. The divider moves by itself, because a page here cannot hold a slider to drag; pause the video to compare.*
+
+![Three parts of the picture, each as bicubic made it from the 720p video, as Media Enhancement made it, and in the 4K original](docs/images/upscaling-720p-to-4k.png)
+
+*The three parts of that shot where Media Enhancement gained most, at 200 %. Measured against the 4K original, it is 1.7 to 3.0 dB closer there than bicubic (PSNR) and keeps edges 78 to 86 % as steep as the original's; bicubic keeps 40 to 50 %. Over the whole picture it is 1.4 dB closer, with edges 58 % as steep against 37 %. The 720p video was made from the 4K film (Tears of Steel, from 183.5 s) and enlarged with converter 0.6.8, once with its plain bicubic and once with Video Super Resolution at High.*
 
 It works as a DirectShow filter between the video decoder and the video renderer, so MPC-HC and MPC Video Renderer stay unmodified.
 
@@ -186,6 +196,6 @@ The installer includes third-party components under their own licences. The NVID
 
 The browser extension is licensed in the same way. It contains code ported from AMD FidelityFX Super Resolution 1 and from Matt Pettineo's Catmull-Rom sampling (both MIT licence), and follows OpenCV's implementation of DIS optical flow (Apache License 2.0); see [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-The video in the browser extension and converter pictures is from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+The video in the samples at the top and in the browser extension and converter pictures is from *Tears of Steel*, (CC) Blender Foundation | mango.blender.org, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
 
 NVIDIA, GeForce and RTX are trademarks or registered trademarks of NVIDIA Corporation in the United States and other countries. Other product names are trademarks of their owners.
