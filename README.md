@@ -25,7 +25,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
-- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.6.1.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
+- **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.6.2.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
 - **For Chrome, Edge, Brave and Firefox:** the extension. For Chrome, Edge and Brave it is `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip`. For Firefox, install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/) (version 1.5.1, reviewed by Mozilla). See [Browser extension](#browser-extension).
 
 ## Requirements
@@ -54,7 +54,7 @@ The settings can be changed in three places. They all change the same settings, 
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The panel's status box shows live figures while a video plays. The pictures of the control center and the settings panel were taken with version 1.5.8 with no video playing, so the status box is empty. They show the Movie profile with its default levels and frame generation at 4×.
+The panel's status box shows live figures while a video plays. The pictures of the control center and the settings panel were taken with version 1.5.8 with no video playing, so the status box is empty. They show the Movie profile with its default levels and frame generation at 4×. Version 1.6.2 arranges the control center differently: the player line and Open video are in its header, and the status card has a bar for the GPU time.
 
 ## Features
 
@@ -77,6 +77,7 @@ The panel's status box shows live figures while a video plays. The pictures of t
   - It greys out settings that have no effect on your display.
   - It marks a choice that would lower frame generation with the rate it lowers to (for example "→ 3×"), and a choice that is too slow on your PC.
   - **You can switch it off** (Adjust to the GPU automatically, in the menu's Frame generation branch, the settings panel's GPU group and the control center's GPU box). The frame generation multiple, the generation quality and the picture levels then play exactly as you chose them, for example Medium at 6×, also when the filter's cost estimate says they will not fit; generated frames that would come late are left out instead. A fixed multiple still stops at what the display can show.
+- **The status says what holds frame generation back:** when the display, the GPU budget or the renderer limits the generated frames, when late frames lowered them, or while the model is still loading, the status line names it, for example "no frame generation: display limit (60 Hz)". It shows in the control center, the settings panel and the MPC-HC menu.
 - **On/off hotkey:** turns the enhancement off and on while the video plays, so you can compare. The key is Ctrl+Shift+E. If another program uses it, the key is Ctrl+Alt+E. The menu and the On/off hotkey switch show the key in use.
 - **Direct GPU output** (on by default): with MPC Video Renderer in its D3D11 mode, the filter hands its frames over as GPU textures, without a copy through system memory.
 - **Experimental options**, off by default: Enhance HDR video and native D3D11 decoding.
@@ -108,7 +109,7 @@ It runs on your graphics card through WebGPU, inside the page. It does not use M
 
 ![The extension's popup over a video playing in Chrome](docs/images/extension.png)
 
-The pictures were taken with version 1.4.9. The popup:
+The pictures were taken with version 1.5.0, which has the same popup as 1.5.1. The popup:
 
 <img src="docs/images/extension-popup.png" alt="The extension's popup" width="360">
 
@@ -172,9 +173,9 @@ A preview. It converts a video file to a new file with the same enhancements (up
 
 ![Split view with the divider between the original and the enhanced picture](docs/images/converter-split.png)
 
-- Install it with Setup 1.6.1: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
+- Install it with Setup 1.6.2: tick the Media Enhancement Converter option. It gets its own Start-menu shortcut. The original files are not changed.
 - `MediaEnhancementConvert.exe` in the converter's folder is the same engine for the command line.
-- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.7) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.3.
+- Tested: the engine's 20-case suite on an RTX 5060 with a 120 Hz display (version 0.6.8) and on an RTX 4070 Laptop GPU with a 240 Hz display (version 0.6.0). The pictures show version 0.6.3; since 0.6.8 the window is wider and has its settings in two columns.
 - It includes FFmpeg 9.0 libraries (LGPL version 3, unchanged).
 
 ## Licence
