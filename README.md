@@ -26,7 +26,7 @@ Media Enhancement is an independent project. It is not affiliated with, sponsore
 All are in the [latest release](../../releases/latest), whose notes list the SHA-256 checksums.
 
 - **For MPC-HC:** the installer, `Media-Enhancement-Setup-1.6.1.exe`. It can also install the converter (an option in Setup). See [Converter](#converter).
-- **For Chrome, Edge, Brave and Firefox:** the extension. For Chrome, Edge and Brave it is `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip`. For Firefox, install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/) (version 1.4.9; 1.5.1 follows once Mozilla has reviewed it). See [Browser extension](#browser-extension).
+- **For Chrome, Edge, Brave and Firefox:** the extension. For Chrome, Edge and Brave it is `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip`. For Firefox, install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/) (version 1.5.1, reviewed by Mozilla). See [Browser extension](#browser-extension).
 
 ## Requirements
 
@@ -118,7 +118,7 @@ The pictures were taken with version 1.4.9. The popup:
   1. Download `Media-Enhancement-Browser-1.5.1-Chrome-Edge-Brave.zip` and unzip it to a folder you keep.
   2. Open `chrome://extensions` (in Edge, `edge://extensions`; in Brave, `brave://extensions`) and switch on Developer mode.
   3. Choose Load unpacked and select the folder.
-- **Firefox:** install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/); Mozilla has reviewed it. The version there is 1.4.9: it has the upscaling sizes and qualities, Match display's new rule (5× for 25 fps video on a 120 Hz display), the frame rate on the toolbar button and the change for Firefox on Windows described above, but not yet 1.5.0's sliders or 1.5.1's better in-between frames for fast text, thin objects and bars. Version 1.5.1 is with Mozilla for review; Firefox updates the extension by itself when it is approved. The listing is a new add-on: if you installed the older `Media-Enhancement-Browser-1.4.7-Firefox.xpi` from a release here, remove it first on the `about:addons` page (that file does not update by itself). On Windows, restart Firefox once after installing.
+- **Firefox:** install it from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/media-enhancement/). The version there is 1.5.1, the same as for Chrome, Edge and Brave; Mozilla has reviewed it, and Firefox keeps it up to date by itself. The listing is a new add-on: if you installed the older `Media-Enhancement-Browser-1.4.7-Firefox.xpi` from a release here, remove it first on the `about:addons` page (that file does not update by itself). On Windows, restart Firefox once after installing.
 
 ### Use the extension
 
