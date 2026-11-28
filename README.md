@@ -64,7 +64,7 @@ The settings can be changed in three places. They all change the same settings, 
 
 <img src="docs/images/settings-panel.png" alt="The settings panel, which Properties opens from the menu" width="562">
 
-The panel's status box shows live figures while a video plays. The pictures of the control center and the settings panel were taken with version 1.5.8 with no video playing, so the status box is empty. They show the Movie profile with its default levels and frame generation at 4×. Version 1.6.2 arranges the control center differently: the player line and Open video are in its header, and the status card has a bar for the GPU time.
+The panel's status box shows live figures while a video plays. The pictures of the control center and the settings panel were taken with version 1.6.2 with no video playing, so the status box is empty. They show the Movie profile with its default levels and frame generation at 4×.
 
 ## Features
 
